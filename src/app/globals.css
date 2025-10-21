@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000;
+  --foreground: #ededed;
+  --muted: #a3a3a3;
+  --spot-x: -200px; /* cursor x */
+  --spot-y: -200px; /* cursor y */
+  --spot-size: 260px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  /* Coffee brown brand */
+  --color-primary: #8b5e34;          /* base */
+  --color-primary-50: #f6efe7;
+  --color-primary-100: #ead9c1;
+  --color-primary-200: #dbbd98;
+  --color-primary-300: #c89b6c;
+  --color-primary-400: #a97549;
+  --color-primary-500: #8b5e34;
+  --color-primary-600: #714a2a;
+  --color-primary-700: #5b3b22;
+  --color-primary-800: #462e1a;
+  --color-primary-900: #332214;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body { 
+  background: var(--background); 
+  color: var(--foreground); 
+  font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.container { max-width: 1200px; margin-inline: auto; padding-inline: 1rem; }
+
+.heading-display { font-family: var(--font-display), sans-serif; letter-spacing: 0.02em; }
+
+/* Utility to simulate subtle text texture via overlay (kept lightweight) */
+.texture:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 2px 2px;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Global spotlight overlay (torch-light effect) */
+.spotlight-layer { 
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background:
+    radial-gradient(circle var(--spot-size) at var(--spot-x) var(--spot-y), rgba(255,255,255,0.14), rgba(255,255,255,0.0) 60%),
+    radial-gradient(circle calc(var(--spot-size)*1.6) at var(--spot-x) var(--spot-y), rgba(255,255,255,0.05), transparent 60%);
+  mix-blend-mode: screen; /* brightens dark areas */
+  opacity: 0; /* off by default */
+  transition: opacity 220ms ease; /* slower to avoid blink */
+}
+
+/* Enable brightness only when explicitly turned on */
+html.spotlight-on .spotlight-layer { opacity: 1; }
+
+/* Optional: mask content so it appears only under the spotlight */
+.spotlight-mask {
+  -webkit-mask-image: none;
+          mask-image: none;
+  opacity: 0; /* hidden until spotlight is active */
+  transition: opacity 200ms ease;
+}
+
+html.spotlight-on .spotlight-mask {
+  opacity: 1;
+  -webkit-mask-image: radial-gradient(circle var(--spot-size) at var(--spot-x) var(--spot-y), rgba(255,255,255,1) 60%, transparent 62%);
+          mask-image: radial-gradient(circle var(--spot-size) at var(--spot-x) var(--spot-y), rgba(255,255,255,1) 60%, transparent 62%);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .spotlight-layer { display: none; }
+  .spotlight-mask { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* Manifesto local spotlight mask (reliable reveal inside the section) */
+.manifesto-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,1);
+  pointer-events: none;
+  opacity: 1; /* hide content until active */
+  transition: opacity 150ms ease;
+  -webkit-mask-image: radial-gradient(circle var(--msize, 240px) at var(--mx, -200px) var(--my, -200px), transparent 60%, black 62%);
+          mask-image: radial-gradient(circle var(--msize, 240px) at var(--mx, -200px) var(--my, -200px), transparent 60%, black 62%);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+.manifesto-mask.is-active { opacity: 1; }
+
+/* Marquee/Ticker */
+@keyframes marquee {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-50%,0,0); }
+}
+.marquee { display: inline-block; width: 200%; animation: marquee 12s linear infinite; }
+.mask-fade {
+  background: linear-gradient(90deg, #000 0%, transparent 8%, transparent 92%, #000 100%);
 }
