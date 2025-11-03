@@ -7,12 +7,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const panels = [
-  { src: "/images/showcase-1.svg", title: "Forest Roast", copy: "Dark chocolate, cedar, molasses. Full‑bodied and lingering." },
-  { src: "/images/showcase-2.svg", title: "Estate Blend", copy: "Hazelnut, brown sugar, red apple. Balanced and smooth." },
-  { src: "/images/showcase-3.svg", title: "Morning Light", copy: "Honey, stone fruit, citrus zest. Bright and sweet." },
-  { src: "/images/showcase-4.svg", title: "Velvet Dark", copy: "Cocoa nibs, tobacco, black cherry. Syrupy and bold." },
-  { src: "/images/showcase-5.svg", title: "Cascara Notes", copy: "Dried berries, hibiscus, panela. Lively natural process." },
-  { src: "/images/showcase-6.svg", title: "Cocoa Finish", copy: "Baker’s chocolate, roasted almond, caramel. Comfort cup." },
+  { src: "/images/kappi/DSC07227.jpg", title: "Forest Roast", copy: "Dark chocolate, cedar, molasses. Full‑bodied and lingering." },
+  { src: "/images/kappi/DSC09139.jpg", title: "Estate Blend", copy: "Hazelnut, brown sugar, red apple. Balanced and smooth." },
+  { src: "/images/kappi/DSC09139.jpg", title: "Morning Light", copy: "Honey, stone fruit, citrus zest. Bright and sweet." },
+  { src: "/images/kappi/IMG_8253.jpeg.jpg", title: "Velvet Dark", copy: "Cocoa nibs, tobacco, black cherry. Syrupy and bold." },
+  { src: "/images/kappi/IMG_6260.jpg", title: "Cascara Notes", copy: "Dried berries, hibiscus, panela. Lively natural process." },
+  { src: "/images/kappi/IMG_6261.jpg", title: "Cocoa Finish", copy: "Baker’s chocolate, roasted almond, caramel. Comfort cup." },
 ];
 
 export default function MarkShowcase() {
@@ -83,7 +83,7 @@ export default function MarkShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="coffees" className="relative bg-black">
+    <section ref={sectionRef} id="coffees" className="relative bg-background">
       <div className="container py-10 md:py-12">
         <h2 className="heading-display text-4xl md:text-6xl">Our Coffees</h2>
       </div>
@@ -97,12 +97,12 @@ export default function MarkShowcase() {
           >
             <div className="absolute inset-0">
               <Image src={p.src} alt={p.title} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
             </div>
             <div className="relative z-10 p-6 md:p-10 w-full">
               <div className="max-w-xl">
                 <div data-title className="heading-display text-4xl md:text-6xl">{p.title}</div>
-                <p data-copy className="mt-3 md:mt-4 text-white/80 md:text-lg">{p.copy}</p>
+            <p data-copy className="mt-3 md:mt-4 text-brand-red/80 md:text-lg">{p.copy}</p>
               </div>
             </div>
           </div>

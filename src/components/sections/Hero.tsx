@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -42,21 +43,26 @@ export default function Hero() {
       aria-label="Hero"
       className="relative min-h-[92vh] w-full flex items-center justify-center overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: "url(/images/hero.svg)" }}
+      <Image
+        src="/images/kappi/DSC02203.JPG"
+        alt="Coffee hero background"
+        fill
+        priority
+        quality={90}
+        sizes="100vw"
+        className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
 
       <div className="relative container text-center pt-24 pb-16">
-        <h1 ref={headingRef} className="heading-display texture relative text-[14vw] leading-none md:text-[150px] font-normal tracking-wide text-white">
+        <h1 ref={headingRef} className="heading-display texture relative text-[14vw] leading-none md:text-[150px] font-normal tracking-wide text-brand-red">
           CLIMATE
           <br />
           COOLING
           <br />
           COFFEE
         </h1>
-        <p ref={pRef} className="mt-8 max-w-3xl mx-auto text-white/80 text-sm md:text-base tracking-wide uppercase">
+        <p ref={pRef} className="mt-8 max-w-3xl mx-auto text-brand-red/90 text-sm md:text-base tracking-wide uppercase">
           Every cup of our coffee is a delight for the senses, a celebration of quality, and a force for good.
         </p>
       </div>

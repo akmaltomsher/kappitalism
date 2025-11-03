@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000;
-  --foreground: #ededed;
+  --background: #f1e9d3;
+  --foreground: #ff0000;
   --muted: #a3a3a3;
   --spot-x: -200px; /* cursor x */
   --spot-y: -200px; /* cursor y */
@@ -15,6 +15,8 @@
   --color-muted: var(--muted);
   /* Coffee brown brand */
   --color-primary: #8b5e34;          /* base */
+  /* Custom brand red for hero text */
+  --color-brand-red: #ff0000;
   --color-primary-50: #f6efe7;
   --color-primary-100: #ead9c1;
   --color-primary-200: #dbbd98;

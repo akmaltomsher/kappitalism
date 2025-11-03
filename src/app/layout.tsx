@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} antialiased bg-black text-white`}>
+      <body className={`${display.variable} ${body.variable} antialiased bg-background text-foreground`}>
         <Spotlight />
         {children}
       </body>

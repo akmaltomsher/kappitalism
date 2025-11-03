@@ -32,13 +32,13 @@ export default function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur supports-[backdrop-filter]:bg-black/60 border-b border-white/10">
+    <header ref={headerRef} className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-white/10">
       <div className="container h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/images/kaapilogo.png" alt="KAPPITALISM" width={258} height={58} />
           <span className="sr-only">Home</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase text-white/80">
+        <nav className="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase text-brand-red/80">
           <Link href="#oneness" className="hover:text-primary">Oneness Coffee</Link>
           <Link href="#coffees" className="hover:text-primary">Our Coffees</Link>
           <Link href="#values" className="hover:text-primary">Values</Link>

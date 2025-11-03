@@ -11,19 +11,25 @@ const steps = [
     title: "Source with Purpose",
     copy:
       "We partner with shade‑grown, single‑origin farms that prioritise biodiversity and fair livelihoods.",
-    src: "/images/showcase-2.svg",
+    src:  "/images/kappi/DSC09139.jpg",
   },
   {
     title: "Roast for Flavour",
     copy:
       "Small‑batch profiles developed to highlight sweetness, clarity and distinctive terroir.",
-    src: "/images/showcase-4.svg",
+    src:"/images/kappi/IMG_8253.jpeg.jpg",
   },
   {
     title: "Brew Beautifully",
     copy:
       "Dialled‑in water, ratios and methods that bring every note to the cup.",
-    src: "/images/showcase-6.svg",
+    src: "/images/kappi/IMG_6260.jpg",
+  },
+  {
+    title: "Brew Beautifully",
+    copy:
+      "Dialled‑in water, ratios and methods that bring every note to the cup.",
+    src: "/images/kappi/IMG_6261.jpg",
   },
 ];
 
@@ -106,7 +112,7 @@ export default function ShowcaseAlt() {
           {steps.map((s, i) => (
             <div key={i} data-step-text className="absolute inset-0 flex flex-col justify-center">
               <div className="heading-display text-4xl md:text-6xl">{s.title}</div>
-              <p className="mt-4 text-white/80 md:text-lg max-w-md">{s.copy}</p>
+            <p className="mt-4 text-brand-red/80 md:text-lg max-w-md">{s.copy}</p>
             </div>
           ))}
 

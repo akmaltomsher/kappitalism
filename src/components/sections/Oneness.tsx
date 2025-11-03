@@ -78,7 +78,7 @@ export default function Oneness() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="oneness" className="relative bg-black py-24 md:py-36 overflow-hidden">
+    <section ref={sectionRef} id="oneness" className="relative bg-background py-24 md:py-36 overflow-hidden">
       <video
         ref={videoRef}
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover will-change-transform"
@@ -117,11 +117,11 @@ export default function Oneness() {
         <h2 ref={heading1Ref} className="heading-display text-[12vw] md:text-[110px] leading-none tracking-wide">
           ONENESS COFFEE
         </h2>
-        <h3 ref={heading2Ref} className="heading-display text-[8vw] md:text-[72px] leading-none tracking-wide mt-2 text-white/90">
+        <h3 ref={heading2Ref} className="heading-display text-[8vw] md:text-[72px] leading-none tracking-wide mt-2 text-brand-red/90">
           BREWING A BETTER FUTURE
         </h3>
 
-        <p ref={pRef} className="mt-8 max-w-4xl mx-auto text-white/80 md:text-lg">
+        <p ref={pRef} className="mt-8 max-w-4xl mx-auto text-brand-red/80 md:text-lg">
           Most of humanity is in a deep slumber. People are ignorant of our negative impact on mother nature.
           We believe that awakening ourselves to the harmony in nature is the way to connect with the source of oneness embedded in and around us.
           We hope our coffee beans become instrumental in your journey to taste infinity.

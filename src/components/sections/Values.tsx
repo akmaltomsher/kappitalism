@@ -31,17 +31,22 @@ export default function Values() {
   }, []);
 
   return (
-    <section ref={ref} id="values" className="bg-black py-20 md:py-28 border-t border-white/10">
+    <section ref={ref} id="values" className="bg-background py-20 md:py-28 border-t border-brand-red/20">
       <div className="container">
         <h2 className="heading-display text-4xl md:text-6xl mb-10">Our Values</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {items.map((it, i) => (
-            <div key={i} data-value className="rounded-xl p-6 bg-white/[.04] border border-white/10">
-              <div className="h-10 w-10 mb-4 relative">
-                <Image src={it.icon} alt="" fill className="object-contain" />
+            <div
+              key={i}
+              data-value
+              className="group rounded-xl p-6 bg-[#391818] border border-brand-red/20 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <span className="block h-1 w-10 bg-brand-red/80 rounded-full mb-5" />
+              <div className="h-12 w-12 mb-4 relative rounded-full bg-brand-red/10 ring-1 ring-brand-red/20">
+                <Image src={it.icon} alt="" fill className="object-contain p-2" />
               </div>
-              <div className="heading-display text-xl mb-2">{it.title}</div>
-              <p className="text-white/75 text-sm leading-relaxed">{it.copy}</p>
+              <div className="heading-display text-xl mb-2 text-brand-red">{it.title}</div>
+              <p className="text-brand-red/80 text-sm leading-relaxed">{it.copy}</p>
             </div>
           ))}
         </div>
@@ -49,4 +54,3 @@ export default function Values() {
     </section>
   );
 }
-
